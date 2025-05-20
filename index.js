@@ -213,8 +213,14 @@ $(document).ready(function () {
   });
 
   // Reset button: just reset the board/UI
-  $('#reset-btn').on('click', function () {
+  $('#reset-btn').on('click', function () { 
     resetGame();
+    //reset status display
+    $('#clicks').text('Clicks: 0');
+    $('#pairs-left').text('Pairs left: 0');
+    $('#pairs-matched').text('Pairs matched: 0');
+    $('#total-pairs').text('Total pairs: 0');
+    $('#timer').text('Time left: 0s');
   });
 
   // Theme selector: change the theme when dropdown changes
