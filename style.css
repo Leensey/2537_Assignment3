@@ -1,0 +1,204 @@
+/* ========== BASE STYLES ========== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fdfdfd;
+  color: #333;
+  text-align: center;
+  font-size: 18px;
+}
+
+h1 {
+  color: #d62828;
+  margin-top: 20px;
+  font-size: 2.8rem;
+}
+
+/* ========== CONTROLS ========== */
+#controls {
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 1rem;
+}
+
+button,
+select {
+  padding: 12px 18px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #ffcb05;
+  color: #2a75bb;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s;
+}
+
+button:hover,
+select:hover {
+  background-color: #f4b400;
+}
+
+/* ========== STATUS ========== */
+#status {
+  background-color: #e3f2fd;
+  border: 2px solid #90caf9;
+  border-radius: 10px;
+  padding: 12px 24px;
+  margin: 20px auto;
+  display: inline-block;
+  text-align: left;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+#status p {
+  margin: 6px 0;
+  font-weight: 500;
+}
+
+
+/* ========== LOADER ========== */
+.spinner-wrapper {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 1.2em;
+  color: #444;
+}
+
+.spinner {
+  margin: 0 auto 10px auto;
+  width: 50px;
+  height: 50px;
+  border: 6px solid #ffcb05;
+  border-top: 6px solid #2a75bb;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#game_grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px auto;
+  padding: 10px;
+  /* border: 2px solid tomato; */
+  width: 660px; /* enough to fit most rows with spacing */
+}
+
+/* Easy: 3 cards per row */
+body.easy .card {
+  flex: 0 0 calc(33.33% - 10px);
+}
+
+/* Medium: 4 cards per row */
+body.medium .card {
+  flex: 0 0 calc(25% - 10px);
+}
+
+/* Hard: 6 cards per row */
+body.hard .card {
+  flex: 0 0 calc(16.66% - 10px);
+}
+
+
+.card {
+  flex: 0 0 calc(33.33% - 10px); /* or 25% / 16.66% for other levels */
+  aspect-ratio: 3 / 4;
+  position: relative;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+  cursor: pointer;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card img {
+  width: 100%;
+  /* height: 100%; */
+  display: block; /* ✅ Fixes inline spacing */
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+
+.front_face,
+.back_face {
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+
+.flip {
+  transform: rotateY(180deg);
+}
+
+
+.front_face {
+  transform: rotateY(180deg);
+}
+
+/* ========== POWER-UP MESSAGE ========== */
+#powerup-message {
+  font-weight: bold;
+  color: #00897b;
+  margin-top: 10px;
+}
+
+/* ========== DARK MODE ========== */
+body.dark {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark h1 {
+  color: #f48fb1;
+}
+
+body.dark #controls button,
+body.dark #controls select {
+  background-color: #2a75bb;
+  color: #ffcb05;
+  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.2);
+}
+
+body.dark #controls button:hover,
+body.dark #controls select:hover {
+  background-color: #1e4f91;
+}
+
+body.dark #status {
+  background-color: #1e1e1e;
+  border-color: #555;
+  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
+}
+
+body.dark .spinner-wrapper {
+  color: #e0e0e0;
+}
+
+body.dark .spinner {
+  border-color: #2a75bb;
+  border-top-color: #ffcb05;
+}
+
+body.dark .card {
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.1);
+}
+
+body.dark #powerup-message {
+  color: #80cbc4;
+}

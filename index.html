@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokemon Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="light">
+
+  <h1>Pokémon Memory Game</h1>
+  <div id="controls">
+    <label>Difficulty:
+      <select id="difficulty">
+        <option value="easy" selected>Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+    </label>
+
+    <button id="start-btn">Start</button>
+    <button id="reset-btn">Reset</button>
+
+    <label>Theme:
+      <select id="theme-select">
+        <option value="light" selected>Light</option>
+        <option value="dark">Dark</option>
+      </select>
+    </label>
+
+    <p id="powerup-message" style="text-align: center; font-weight: bold; color: teal;"></p>
+  </div>
+
+  <div id="status">
+    <p id="clicks">Clicks: 0</p>
+    <p id="pairs-left">Pairs Left: 0</p>
+    <p id="pairs-matched">Pairs Matched: 0</p>
+    <p id="total-pairs">Total Pairs: 0</p>
+    <p id="timer">Time Left: 0</p>
+  </div>
+
+  <div id="loading" class="spinner-wrapper" style="display: none;">
+    <div class="spinner"></div>
+    <p>Loading Pokémon...</p>
+  </div>
+
+
+  <div id="game_grid" class="easy"></div>
+
+
+  <!-- import jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="index.js"></script>
+
+</body>
+
+</html>
